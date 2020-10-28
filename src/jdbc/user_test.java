@@ -12,9 +12,9 @@ public class user_test {
         String p = scanner.nextLine();
         boolean loo = new user_test().login(u,p);
         if(loo){
-            System.out.println("登陆成功");
+            System.out.println("동록 성공");
         }else
-            System.out.println("登陆失败");
+            System.out.println("동록 실패");
         }
 
 
@@ -29,13 +29,15 @@ public class user_test {
             connection=JDBC_TOOL.get_connection();
             String sql="select *from test where id=?and password=?";
             pre = connection.prepareStatement(sql);
+            pre.setString(1,username);
+            pre.setString(2,password);
             resultSet = pre.executeQuery();
             return resultSet.next();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            JDBC_TOOL.close(resultSet, pre, connection);
+            JDBC_TOOL.close(resultSet, pre, connection,pre );
         }
 
 

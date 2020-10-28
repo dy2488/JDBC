@@ -40,7 +40,7 @@ public class JDBC_TOOL {
   public static Connection get_connection() throws SQLException {
         return DriverManager.getConnection(url,user ,password );
    }
-    public static void close(ResultSet resultSet,Statement statement,Connection connection){
+    public static void close(ResultSet resultSet,Statement statement,Connection connection,PreparedStatement preparedStatement){
         if(statement!=null){
             try {
                 statement.close();
@@ -60,6 +60,13 @@ public class JDBC_TOOL {
                 resultSet.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+            }
+        }
+        if(preparedStatement!=null){
+            try{
+                preparedStatement.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
         }
     }
