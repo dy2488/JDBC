@@ -15,7 +15,7 @@ public class add_insert {
             Class.forName("com.mysql.cj.jdbc.Driver");
              connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dingyu?serverTimezone=UTC", "root", "DingYu,!199000521");
              statement = connection.createStatement();
-            String sql = "insert into family values('师艳',2,'1984-10-27')";
+            String sql = "insert into zhanghu values(123,123)";
             int i = statement.executeUpdate(sql);//影响的行数
             System.out.println(i);
             if(i>0){

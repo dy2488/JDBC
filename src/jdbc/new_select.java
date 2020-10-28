@@ -13,7 +13,7 @@ public class new_select {
         try {
             connection=JDBC_TOOL.get_connection();
             statement = connection.createStatement();
-            String sql = "select *from family";
+            String sql = "select *from zhanghu";
             resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
                 String name = resultSet.getString(1);
@@ -26,7 +26,7 @@ public class new_select {
             e.printStackTrace();
         }
     finally {
-            JDBC_TOOL.close( resultSet, statement, connection);
+            JDBC_TOOL.close( resultSet, statement, connection,null);
         }
 
     }

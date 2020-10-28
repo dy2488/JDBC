@@ -24,7 +24,7 @@ public class new_insert {
             e.printStackTrace();
         }
         finally {
-            JDBC_TOOL.close(resultSet, statement, connection);
+            JDBC_TOOL.close(resultSet, statement, connection,null);
         }
     }
 }
